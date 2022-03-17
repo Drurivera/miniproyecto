@@ -1,0 +1,2 @@
+# miniproyecto
+codigo pre-tesis.
