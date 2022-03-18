@@ -44,12 +44,15 @@
 
 #include "utils/uartstdio.h"
 #include "MPU6050.h"
+#include "PID.h"
 #include <math.h>
 float x,y,z;
 
 //*****************************************************************************
 // Prototipo de funciones
 //*****************************************************************************
+
+
 void Timer0Handler(void)
 {
     TimerIntClear(TIMER0_BASE, TIMER_TIMA_TIMEOUT);
@@ -60,17 +63,15 @@ void UART0IntHandler(void)
     UARTIntClear(UART0_BASE,UARTIntStatus(UART0_BASE, true)); //se limpia la bandera de la interrupcion
 
 }
-
 int main(void)
 {
     SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_PLL | SYSCTL_OSC_INT | SYSCTL_XTAL_16MHZ);
-
-        InitI2C0();
-        MPU6050INIT();
-
-        while(1)
-        {
-            MPU6050READDATA(&x,&y,&z);
-        }
-    return 0;
+    InitI2C0();
+    MPU6050INIT();
+    PID_SETUP ();
+    while(1)
+    {
+        MPU6050READDATA(&x,&y,&z);
+        Set_Vary(y);
+    }
 }

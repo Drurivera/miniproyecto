@@ -11,6 +11,7 @@ GEN_CMDS__FLAG :=
 
 ORDERED_OBJS += \
 "./MPU6050.obj" \
+"./PID.obj" \
 "./adc_timer_uart_startup_ccs.obj" \
 "./main.obj" \
 "./uartstdio.obj" \
@@ -159,8 +160,8 @@ IMU.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "MPU6050.obj" "adc_timer_uart_startup_ccs.obj" "main.obj" "uartstdio.obj" 
-	-$(RM) "MPU6050.d" "adc_timer_uart_startup_ccs.d" "main.d" "uartstdio.d" 
+	-$(RM) "MPU6050.obj" "PID.obj" "adc_timer_uart_startup_ccs.obj" "main.obj" "uartstdio.obj" 
+	-$(RM) "MPU6050.d" "PID.d" "adc_timer_uart_startup_ccs.d" "main.d" "uartstdio.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -38,6 +38,7 @@ main.obj: C:/ti/TivaWare_C_Series-2.1.4.178/driverlib/interrupt.h
 main.obj: C:/ti/TivaWare_C_Series-2.1.4.178/driverlib/i2c.h
 main.obj: C:/ti/TivaWare_C_Series-2.1.4.178/utils/uartstdio.h
 main.obj: ../MPU6050.h
+main.obj: ../PID.h
 main.obj: C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/math.h
 main.obj: C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/_defs.h
 main.obj: C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_limits.h
@@ -117,6 +118,8 @@ C:/ti/TivaWare_C_Series-2.1.4.178/driverlib/i2c.h:
 C:/ti/TivaWare_C_Series-2.1.4.178/utils/uartstdio.h:
 
 ../MPU6050.h:
+
+../PID.h:
 
 C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/math.h:
 
