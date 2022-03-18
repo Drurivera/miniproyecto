@@ -68,7 +68,7 @@ int main(void)
     SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_PLL | SYSCTL_OSC_INT | SYSCTL_XTAL_16MHZ);
     InitI2C0();
     MPU6050INIT();
-    PID_SETUP ();
+    PID_SETUP();
     while(1)
     {
         MPU6050READDATA(&x,&y,&z);
