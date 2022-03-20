@@ -22,7 +22,7 @@ function varargout = interfaz_Balacin(varargin)
 
 % Edit the above text to modify the response to help interfaz_Balacin
 
-% Last Modified by GUIDE v2.5 18-Mar-2022 02:43:18
+% Last Modified by GUIDE v2.5 18-Mar-2022 11:32:23
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -85,10 +85,19 @@ function B1_Callback(hObject, eventdata, handles)
 % --- Executes on slider movement.
 function Angulo_Callback(hObject, eventdata, handles)
 cla(handles.axes1, 'reset');
-t = t+1;
-ref = randi ([-28,28]);
+tmax = str2num(get(handles.tmax,'String'));
+for t = 0:0.05:tmax;
+ref = randi ([-28,28])
+hold on;
+title ('SEGUIMIENTO SENAL');
+grid on;
+xlabel ('tiempo (s)');
+ylabel ('angulo');
 Ang = get(handles.Ang,'Value');
-plot(handle.axes1,t,Ang);
+plot(handle.axes1,t,Ang,'b**');
+
+hold off;
+end
 % hObject    handle to Angulo (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -107,3 +116,39 @@ function Angulo_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
+
+
+
+function tmax_Callback(hObject, eventdata, handles)
+% hObject    handle to tmax (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of tmax as text
+%        str2double(get(hObject,'String')) returns contents of tmax as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function tmax_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to tmax (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','blue');
+end
+
+
+% --- Executes on button press in inicio.
+function inicio_Callback(hObject, eventdata, handles)
+
+hold on;
+title ('SEGUIMIENTO SENAL');
+grid on;
+xlabel ('tiempo (s)');
+ylabel ('angulo');
+% hObject    handle to inicio (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
